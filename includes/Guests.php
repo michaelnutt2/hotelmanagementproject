@@ -1,21 +1,21 @@
 <?php
 //This is the bookings class
-class guests
+class Guests
 {
     //Properties
-    private $name = null;
-    private $phone = null;
-    private $email = null;
-    private $credit_card = null;
-    private $zip = null;
-    private $result = null;
+    private $name = "";
+    private $phone = "";
+    private $email = "";
+    private $credit_card = "";
+    private $zip = "";
+    private $result = [];
 
     //Methods
-    public function select_all_guests(){
+    public function select_all(){
         return 0;
     }
 
-    public function select_one_guests(){
+    public function select_one(){
         return 0;
     }
 

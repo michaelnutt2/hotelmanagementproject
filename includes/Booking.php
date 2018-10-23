@@ -1,26 +1,21 @@
 <?php
 //This is the bookings class
-class bookings
+class Bookings
 {
     //Properties
     private $results = [];
 
     //Methods
-    public function select_all_bookings(){
+    public function select_all(){
         return 0;
     }
 
-    public function select_one_booking(){
+    public function select_one(){
         return 0;
     }
 
     public function create_new(){
         return 0;
     }
-
-
 }
-
-
-
 ?>

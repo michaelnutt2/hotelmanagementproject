@@ -6,12 +6,12 @@ class User
 	private $results = [];
 
 	// Selets all users
-	public function selectAll(){
+	public function select_all(){
 		return;
 	}
 
 	// Selects one user based on Employee ID(ID)
-	public function selectOne(){
+	public function select_one(){
 		return;
 	}
 }

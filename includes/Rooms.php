@@ -1,6 +1,6 @@
 <?php
 //This is the Rooms class
-class rooms
+class Rooms
 {
     //Properties
     private $results = [];
@@ -24,6 +24,3 @@ class rooms
 
 
 ?>
-
-
-
