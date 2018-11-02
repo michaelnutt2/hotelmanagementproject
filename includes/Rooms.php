@@ -6,7 +6,7 @@ class Rooms
     private $results = [];
 
     //Methods
-    public function select_all_rooms(){
+    public function select_all(){
         return 0;
     }
 
