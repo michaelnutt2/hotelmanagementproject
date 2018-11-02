@@ -6,5 +6,10 @@
 </head>
 <body>
 	<h1>Hotel Management System In Progress!</h1>
+  <?php include 'includes/Database.php'; ?>
+  <script>console.log("Starting db")</script>
+  <?php
+    $db = new Database;
+  ?>
 </body>
 </html>
