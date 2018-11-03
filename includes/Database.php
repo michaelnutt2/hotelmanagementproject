@@ -3,24 +3,23 @@
 // Sets up database and manages all queries
 class Database
 {
-  private $server = "localhost";
-  private $username = "hotel";
-  private $password = "hotel";
-  private $dbname = "hotel";
-  private $results = [];
-
   // Connect to Database
   public function conn(){
+    $server = "localhost";
+    $username = "hotel";
+    $password = "hotel";
+    $dbname = "hotel";
+
     // Connects to the server
-    $conn = new mysqli($this->server, $this->username, $this->password, $this->dbname);
+    $conn = new mysqli($server, $username, $password, $dbname);
 
     // Checks if connection was Successful
     if($conn->connect_error){
-      echo "<script>console.log("Connection Failed")</script>";
-      die("Connection Failed" . $conn->connect_error);
+      echo("<script>console.log('Connection Failed');</script>");
+      die("Connection Failed".$conn->connect_error);
     }
     // Prints if was successful
-    echo "<script>console.log("Connection Successful")</script>";
+    echo("<script>console.log('Connect Successful');</script>");
     $conn->query("USE hotel");
     return $conn;
   }
@@ -31,12 +30,12 @@ class Database
     $conn = $this->conn();
 
     // Selects specified data from specified table
-    $sql = "SELECT " . $what . " FROM " . $where;
-    $this->results = $conn->query($sql);
+    $sql = "SELECT ".$what." FROM ".$where;
+    $results = $conn->query($sql);
 
     $conn->close();
 
-    return $this->results;
+    return $results;
   }
 
   // Selects specific data using where statement
@@ -45,21 +44,21 @@ class Database
 
     // Selects specified data from matching specified paramaters
     $sql = "SELECT " . $what . " FROM " . $where . " WHERE " . $which;
-    $this->results= $conn->query($sql);
+    $results= $conn->query($sql);
 
     $conn->close();
 
-    return $this->results;
+    return $results;
   }
 
   public function insert($whatFields, $whatData, $where){
     $conn = $this->conn();
 
-    $sql = "INSERT INTO " . $where . "(" . $whatFields . ") VALUES (" . $whatData . ")";
-    $this->results = $conn->query($sql);
+    $sql = "INSERT INTO ".$where." (".$whatFields.") VALUES (".$whatData.")";
+    $results = $conn->query($sql);
 
     $conn->close();
-    return $this->results;
+    return $results;
   }
 }
 ?>
