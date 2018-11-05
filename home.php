@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<!--- Navbar-here --->
+  <?php include($_SERVER['DOCUMENT_ROOT']."/includes/header.php");?>
 <div class="image">
 <center><h1 class="text-info"> Hello, "NAME"! </h1>
   <br> <h3>Welcome to Heartbreak Hotel!</h3></center>
