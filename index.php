@@ -5,6 +5,8 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<h1>Hotel Management System In Progress!</h1>
+  <script>console.log("Before include")</script>
+  <?php include($_SERVER['DOCUMENT_ROOT']."/includes/header.php");?>
+  <script>console.log("After include")</script>
 </body>
 </html>
