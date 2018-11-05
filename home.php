@@ -8,6 +8,6 @@
 <div class="image">
 <center><h1 class="text-info"> Hello, "NAME"! </h1>
   <br> <h3>Welcome to Heartbreak Hotel!</h3></center>
-  <img src="HH3.jpg" alt="Heartbreak Hotel" width="755" height="600" alt=""/>
-  <img src="HH2.jpg" alt="Heartbreak Hotel" width="755" height="600" alt=""/>
+  <img src="images/HH3.jpg" alt="Heartbreak Hotel" width="755" height="600" alt=""/>
+  <img src="images/HH2.jpg" alt="Heartbreak Hotel" width="755" height="600" alt=""/>
 </div>
