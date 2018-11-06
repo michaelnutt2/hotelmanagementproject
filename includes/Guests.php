@@ -12,7 +12,9 @@ class Guests
 
     //Methods
     public function select_all(){
-        return 0;
+        $db = new Database;
+        $results = $db->select("*", "Guests");
+        return $results;
     }
 
     public function select_one(){

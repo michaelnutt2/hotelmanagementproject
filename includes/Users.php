@@ -14,5 +14,10 @@ class User
 	public function select_one(){
 		return;
 	}
+
+  // Used for setting up a new user 
+  public function create_new(){
+    return;
+  }
 }
 ?>

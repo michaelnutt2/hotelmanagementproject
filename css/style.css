@@ -309,12 +309,14 @@ textarea {
   overflow: auto;
   resize: vertical;
 }
-
+/*Changed for the login form -- started as 0,0,0,0*/
+/*added the width for the login form*/
 fieldset {
+   width:500px;
   min-width: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
+  padding: 50;
+  margin: 50;
+  border: 50;
 }
 
 legend {
@@ -2103,9 +2105,11 @@ select.form-control[size], select.form-control[multiple] {
 textarea.form-control {
   height: auto;
 }
-
+/*Added left and right margin for the login page*/
 .form-group {
   margin-bottom: 1rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .form-text {
