@@ -5,11 +5,7 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <script>console.log("Before include")</script>
-  <?php include($_SERVER['DOCUMENT_ROOT']."/includes/header.php");?>
-  <script>console.log("After include")</script>
-
-	<form style= "margin-left:500px; margin-right:500px; margin-top:150px ">
+	<form style= "margin-left:500px; margin-right:500px; margin-top:150px " method="post" action="\home.php">
 	    <fieldset>
 	      <legend>Login to Heartbreak Hotel</legend>
 	      <div class="form-group">
