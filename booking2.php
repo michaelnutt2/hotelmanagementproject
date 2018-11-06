@@ -5,7 +5,6 @@
 </head>
 <body>
   <?php include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/header.php");?>
-
 <form style= "margin-left:500px; margin-right:500px; margin-top:20px">
   <fieldset>
     <legend>Make a Reservation</legend>
