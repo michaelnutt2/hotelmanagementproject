@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <?php include($_SERVER['DOCUMENT_ROOT']."/includes/header.php");?>
+    <?php include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/header.php");?>
     <h1>Schedules</h1>
   </body>
 </html>
