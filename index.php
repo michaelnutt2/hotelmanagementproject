@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<form style= "margin-left:500px; margin-right:500px; margin-top:150px " method="post" action="\home.php">
+	<form style= "margin-left:500px; margin-right:500px; margin-top:150px " method="post" action="home.php">
 	    <fieldset>
 	      <legend>Login to Heartbreak Hotel</legend>
 	      <div class="form-group">
