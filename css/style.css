@@ -1672,9 +1672,10 @@ pre code {
     margin-left: 91.6666666667%;
   }
 }
-
+/*Changed for the schedule table
+ Width was 100%, changed to auto*/
 .table {
-  width: 100%;
+  width: auto;
   margin-bottom: 1rem;
   background-color: transparent;
 }
@@ -4259,12 +4260,13 @@ input[type="button"].btn-block {
           justify-content: space-between;
 }
 
+/*changed the font size*/
 .navbar-brand {
   display: inline-block;
   padding-top: 0.32421875rem;
   padding-bottom: 0.32421875rem;
   margin-right: 1rem;
-  font-size: 1.171875rem;
+  font-size: 2rem;
   line-height: inherit;
   white-space: nowrap;
 }
@@ -4312,10 +4314,10 @@ input[type="button"].btn-block {
       -ms-flex-align: center;
           align-items: center;
 }
-
+/*changed the font size*/
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
-  font-size: 1.171875rem;
+  font-size: 2rem;
   line-height: 1;
   background-color: transparent;
   border: 1px solid transparent;
