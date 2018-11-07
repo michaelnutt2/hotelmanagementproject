@@ -17,8 +17,8 @@ ini_set('display_errors', '1');
     $userpassErr = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $test = $lg->validate_login($_POST["name"], $_POST["password"]);
-      if($test)
+      $test = $lg->validate_login($_POST["username"], $_POST["password"]);
+      if($test == "True")
       {
         echo("<script>location.replace('home.php')</script>");
       }
@@ -39,8 +39,8 @@ ini_set('display_errors', '1');
 	        <label for="exampleInputPassword1">Password</label>
 	        <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
 	      </div>
-        <span class="error"><?php echo $userpassErr;?></span>
-	            <button type="submit" class="btn btn-primary">Submit</button>
+              <span class="error"><p><?php echo $userpassErr;?></p></span>
+	            <button type="submit" class="btn btn-primary">Submit</button
 	    </fieldset>
 	  </form>
 

@@ -6,6 +6,8 @@ class login
 	// Methods
   public function validate_login($username, $password){
     // $hash = password_hash($password, PASSWORD_DEFAULT);
+    if($username == "")
+      return "False";
     $db = new Database;
     $where = 'Name="'.$username.'"';
     $results = $db->select_one("password","user",$where);
