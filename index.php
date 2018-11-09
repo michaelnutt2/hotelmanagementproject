@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
+session_start();
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -16,16 +17,25 @@ ini_set('display_errors', '1');
     $lg = new Login;
     $userpassErr = "";
 
+    // Called after user enters data on the page
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      // Checks if login is correct
       $test = $lg->validate_login($_POST["username"], $_POST["password"]);
-      if($test == "True")
+      if($test == False)
       {
-        echo("<script>location.replace('home.php')</script>");
+        // Prints error on incorrect login
+        $userpassErr = "Username or Password not found.";
       }
       else
       {
-        $userpassErr = "Username or Password not found.";
+        // Sets session values for the user
+        $row = $test->fetch_assoc();
+        $_SESSION["name"] = $_POST["username"];
+        $_SESSION["ID"] = $row["ID"];
+        $_SESSION["role"] = $row["Role"];
+        echo("<script>location.replace('home.php')</script>");
       }
+
     }
     ?>
 	<form style= "margin-left:500px; margin-right:500px; margin-top:150px " method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">

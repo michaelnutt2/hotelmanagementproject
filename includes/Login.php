@@ -14,14 +14,18 @@ class login
     $row = $results->fetch_assoc();
     // echo("Row:".$row["password"]."\nHash:".$hash."\n");
     if($row["password"] == $password)
-      return "True";
+      return $results;
     else
-      return "False";
+      return False;
   }
 
 	// Selects one user based on user name
-	public function select_one(){
-		return 0;
+	public function select_one($type, $value){
+    $db = new Database;
+    $query = $type."=".$value;
+    $results = $db->select_one("*","user",$query);
+
+		return $results;
 	}
 
 }
