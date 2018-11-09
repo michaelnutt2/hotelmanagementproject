@@ -13,21 +13,23 @@ class Guests
     //Methods
     public function select_all(){
         $db = new Database;
-        $results = $db->select("*", "Guests");
+        $results = $db->select("*", "guest");
         return $results;
     }
 
-    public function select_one(){
-        return 0;
+    // Type is the column, Value is what you are looking for
+    public function select_one($type, $value){
+        $db = new Database;
+        $query = $type."=".$value;
+        $results = $db->select_one("*","guest",$query);
+        return $results;
     }
 
-    public function create_new(){
-        return 0;
+    public function create_new($name, $phone, $email, $cc, $zip){
+      $db = new Database;
+      $query = "'".$name."','".$phone."','".$email."','".$cc."','".$zip."'";
+      $db->insert("Name, Phone, Email, CreditCard, Zip",$query,"guest");
+      return;
     }
-
-
 }
-
-
-
 ?>

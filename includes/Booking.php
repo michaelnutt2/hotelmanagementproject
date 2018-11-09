@@ -1,5 +1,4 @@
 <?php
-include("Database.php");
 //This is the bookings class
 class Booking
 {
@@ -28,7 +27,7 @@ class Booking
   public function create_new($guestID, $roomID, $start, $stop){
     $query = $roomID.",".$guestID.",".$start.",".$stop;
     $this->db->insert("Guest_ID, Room_ID, start, stop", $query, "booking");
-    return ;
+    return;
   }
 }
 ?>
