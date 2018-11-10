@@ -1,4 +1,10 @@
 <?php
+  session_start();
+  if(!isset($_SESSIN['name']))
+  {
+  	header('Location: ../index.php');
+	exit();
+  }
   error_reporting(E_ALL);
   ini_set('display_errors', '1');
   echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
