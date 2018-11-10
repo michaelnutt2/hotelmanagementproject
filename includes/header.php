@@ -2,7 +2,7 @@
   session_start();
   if(!isset($_SESSIN['name']))
   {
-  	header('Location: $_SERVER['DOCUMENT_ROOT']/hotelmanagement/index.php');
+  	header('Location: "$_SERVER['DOCUMENT_ROOT']"./hotelmanagement/index.php');
 	exit();
   }
   error_reporting(E_ALL);
