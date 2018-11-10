@@ -20,7 +20,12 @@ session_start();
     // Called after user enters data on the page
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Checks if login is correct
-      $test = $lg->validate_login($_POST["username"], $_POST["password"]);
+	  if(!isset($_POST["username"])){
+	  	$test = False;
+	  }
+      else {
+	  	$test = $lg->validate_login($_POST["username"], $_POST["password"]);
+      }
       if($test == False)
       {
         // Prints error on incorrect login
