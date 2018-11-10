@@ -24,6 +24,17 @@ class Database
     return $conn;
   }
 
+  public function join($what, $table1, $table2,$table1col,$table2col,$where){
+
+    $conn = $this->conn();
+    $sql = "SELECT ".$what." FROM ".$table1." RIGHT JOIN ".$table2." ON ".$table1.".".$table1col."=".$table2.".".$table2col." WHERE ".$where;
+    $results = $conn->query($sql);
+
+    $conn->close();
+
+    return $results;
+  }
+
   // Select statement
   public function select($what, $where){
     // Connect to database
@@ -55,7 +66,8 @@ class Database
     $conn = $this->conn();
 
     $sql = "INSERT INTO ".$where." (".$whatFields.") VALUES (".$whatData.")";
-    $results = $conn->query($sql);
+    $conn->query($sql);
+    $results = $conn->insert_id;
 
     $conn->close();
     return $results;

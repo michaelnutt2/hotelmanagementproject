@@ -2,12 +2,11 @@
 //This is the Rooms class
 class Rooms
 {
-    //Properties
-    private $results = [];
-
     //Methods
     public function select_all(){
-        return 0;
+      $db = new Database;
+      $results = $db->select("*","rooms");
+      return $results;
     }
 
     public function select_avail_rooms(){

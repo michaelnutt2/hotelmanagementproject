@@ -1,7 +1,9 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
+// Starts and destroys session to ensure no carry over
 session_start();
+session_unset();
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -12,7 +14,6 @@ session_start();
   <?php include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/Login.php");?>
 </head>
 <body>
-  <script>console.log("Before php")</script>
   <?php
     $lg = new Login;
     $userpassErr = "";
@@ -20,11 +21,10 @@ session_start();
     // Called after user enters data on the page
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Checks if login is correct
-	  if(empty($_POST["username"])){
-	  	$test = False;
-	  }
-      else {
-	  	$test = $lg->validate_login($_POST["username"], $_POST["password"]);
+	    if(empty($_POST["username"])){
+	  	  $test = False;
+	    } else {
+        $test = $lg->validate_login($_POST["username"], $_POST["password"]);
       }
       if($test == False)
       {

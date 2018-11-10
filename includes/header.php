@@ -37,6 +37,10 @@
       <li class="nav-item">
         <a class="nav-link" href="booking.php">Booking</a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="includes/logout.php">Log Out</a>
+      </li>
   </ul>
   </div>
 </nav>';

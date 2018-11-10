@@ -28,8 +28,8 @@ class Guests
     public function create_new($name, $phone, $email, $cc, $zip){
       $db = new Database;
       $query = "'".$name."','".$phone."','".$email."','".$cc."','".$zip."'";
-      $db->insert("Name, Phone, Email, CreditCard, Zip",$query,"guest");
-      return;
+      $id = $db->insert("Name, Phone, Email, CreditCard, Zip",$query,"guest");
+      return $id;
     }
 }
 ?>
