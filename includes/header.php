@@ -2,7 +2,7 @@
   session_start();
   if(!isset($_SESSIN['name']))
   {
-  	header('Location: /var/www/html/hotelmanagement/index.php');
+  	header('Location: index.php');
 	exit();
   }
   error_reporting(E_ALL);
