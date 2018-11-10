@@ -20,7 +20,7 @@ session_start();
     // Called after user enters data on the page
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Checks if login is correct
-	  if(!isset($_POST["username"])){
+	  if(empty($_POST["username"])){
 	  	$test = False;
 	  }
       else {
