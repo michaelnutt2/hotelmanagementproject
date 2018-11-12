@@ -10,8 +10,6 @@ ini_set('display_errors', '1');
 <body>
   <?php
     include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/header.php");
-    include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/Database.php");
-    include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/Booking.php");
   ?>
   <?php
     $bk = new Booking;
