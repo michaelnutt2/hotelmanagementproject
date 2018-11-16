@@ -1,0 +1,12 @@
+
+vendor/
+
+autoloader\.php
+
+composer\.json
+
+composer\.lock
+
+phpunit\.xml
+
+includes/Tests/BookingTest\.php
