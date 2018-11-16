@@ -24,7 +24,7 @@ ini_set('display_errors', '1');
 
 <div class="jumbotron">
   <center>
-     <h1 class="display-3">Room Booked Successfully!</h1>
+     <h1 class="display-5">Room Booked Successfully!</h1>
   <p class="lead">Confirmation Number: <?php echo $bid ?></p>
     <p class="lead">Room Number: <?php echo $_POST["roomID"]?></p>
     <p class="lead">Check-In Date: <?php echo $start->format('m/d/Y')?></p>
