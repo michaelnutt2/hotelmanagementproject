@@ -19,18 +19,22 @@
           <label for="custName">Guest Name</label>
           <input type="text"  class="form-control" id="custName"  placeholder="Enter Name">
         </div>
-    <center><h3> OR </h3></center>
-        <div class="form-group">
-          <label for="phoneNumber">Guest Room Number</label>
-          <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter Room Number">
-        </div>
-
-    <br>
+        <br>
     <button type="submit" class="btn btn-primary">Search</button>
 
 
       </fieldset>
     </form>
+<!--- search for the guest name,
+      if found go to 'checkin2.php'
+      if not found reveal hidden "go to reservaition button"
+--->
+
+
+  <button type="submit"style="display: none;" class="btn btn-primary">Search</button>
+<!--- ^^^ here lies the hidden button --->
+
+
 
     </body>
     </html>
