@@ -23,18 +23,17 @@
     <button type="submit" class="btn btn-primary">Search</button>
 
 
+    <br><br>
+    <h3 style="display: none;"><center>Reservation Not Found </center></h3>
+      <button type="submit" style="display: none;" class="btn btn-primary">Reservations</button>
+    <!--- ^^^ here lies the hidden button --->
+
       </fieldset>
     </form>
 <!--- search for the guest name,
       if found go to 'checkin2.php'
       if not found reveal hidden "go to reservaition button"
 --->
-
-
-  <button type="submit"style="display: none;" class="btn btn-primary">Search</button>
-<!--- ^^^ here lies the hidden button --->
-
-
 
     </body>
     </html>
