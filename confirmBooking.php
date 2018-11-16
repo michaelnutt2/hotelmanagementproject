@@ -13,7 +13,6 @@ ini_set('display_errors', '1');
   ?>
   <?php
     $g = new Guests;
-    echo "<p>".$_POST["roomID"]."</p>";
     //name, phone, email, cc, zip
     $gid = $g->create_new($_POST["custName"],$_POST["custPhone"],$_POST["custEmail"],$_POST["cc"],$_POST["zip"]);
     $bk = new Booking;
