@@ -14,22 +14,22 @@
       <legend>Confirm Guest Information</legend>
 
       <div class="form-group">
-        <label for="custName">Guest Name:</label>
+        <label for="custName">Guest Name: <?php echo $_SESSION["guestName"];?></label>
       </div>
 
       <div class="form-group">
-        <label for="custEmail">Guest Email:</label>
+        <label for="custEmail">Guest Email: <?php echo $_SESSION["guestEmail"];?></label>
       </div>
 
       <div class="form-group">
-        <label for="phoneNumber">Guest Room Number:</label>
+        <label for="phoneNumber">Guest Room Number: <?php echo $_SESSION["roomNum"];?></label>
       </div>
 
 
 
 
   <!--- Call the checkinConfirmation page --->
-  <button type="submit" class="btn btn-primary">Check-In</button>
+  <button type="submit" class="btn btn-primary" formaction="checkinConfirmation.php">Check-In</button>
 
 
     </fieldset>
