@@ -20,7 +20,7 @@ class Guests
     // Type is the column, Value is what you are looking for
     public function select_one($type, $value){
         $db = new Database;
-        $query = $type."=".$value;
+        $query = $type."='".$value."'";
         $results = $db->select_one("*","guest",$query);
         return $results;
     }

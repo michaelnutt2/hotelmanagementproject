@@ -15,11 +15,9 @@ class Database
 
     // Checks if connection was Successful
     if($conn->connect_error){
-      echo("<script>console.log('Connection Failed');</script>");
       die("Connection Failed".$conn->connect_error);
     }
     // Prints if was successful
-    echo("<script>console.log('Connect Successful');</script>");
     $conn->query("USE hotel");
     return $conn;
   }

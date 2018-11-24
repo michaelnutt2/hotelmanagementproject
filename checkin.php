@@ -5,23 +5,69 @@
 </head>
 <body>
   <?php include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/header.php");?>
+  <?php
+    $guestErr = "";
+    $test = False;
 
+    if($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+      // Checks if field was left empty
+      if(empty($_POST["custName"])){
+        $test = False;
+      } else {
+        // Queries for guest information
+        $gt = new Guests;
+        $results = $gt->select_one("Name",$_POST["custName"]);
+        $row = $results->fetch_assoc();
+        // Checks if guest exists
+        if($row["ID"] == null){
+          $test = False;
+        } else {
+          // Queries for booking information
+          $_SESSION["guestName"] = $row["Name"];
+          $_SESSION["guestEmail"] = $row["Email"];
+          $bk = new Booking;
+          $results = $bk->select_one("Guest_ID", $row["ID"]);
+          $row = $results->fetch_assoc();
+          // Checks if reservation exists
+          if($row["ID"]==null){
+            $test = False;
+          } else {
+            // Loads next page if guest and reservation exist.
+            $_SESSION["roomNum"] = $row["Room_ID"];
+            echo("<script>location.replace('checkin2.php')</script>");
+          }
+        }
+      }
+      // Error if guest or reservation don't exist
+      if($test == False){
+        $guestErr = "Reservation not found";
+      }
+    }
+  ?>
 
-      <form style= "margin-left:500px; margin-right:500px; margin-top:20px">
+      <form style= "margin-left:500px; margin-right:500px; margin-top:20px" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
       <fieldset>
         <legend>Welcome to Guest Check In!</legend>
 
         <div class="form-group">
           <label for="custName">Guest Name</label>
-          <input type="text"  class="form-control" id="custName"  placeholder="Enter Name">
+          <input type="text"  class="form-control" id="custName"  placeholder="Enter Name" name="custName">
         </div>
         <br>
+        <span class="error"><p><?php echo $guestErr;?></p></span>
     <button type="submit" class="btn btn-primary">Search</button>
 
 
     <br><br>
-    <h3 style="display: none;"><center>Reservation Not Found </center></h3>
-      <button type="submit" style="display: none;" class="btn btn-primary">Reservations</button>
+    <?php
+    if($_SERVER["REQUEST_METHOD"]=="POST"){
+      if(!empty($_POST["custName"] && !$test)){
+        echo '<h3 style="display: none;"><center>Reservation Not Found </center></h3>
+      <button type="submit" class="btn btn-primary" formaction="booking.php">Booking</button>';
+      }
+    }
+    ?>
     <!--- ^^^ here lies the hidden button --->
 
       </fieldset>
