@@ -5,11 +5,9 @@
 </head>
 <body>
   <?php include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/header.php");?>
-  <h1>Check Out</h1>
-
     <form style= "margin-left:500px; margin-right:500px; margin-top:20px">
     <fieldset>
-      <legend>Welcome to Guest Check Out</legend>
+      <legend>Check Out</legend>
 
       <div class="form-group">
         <label for="custName">Guest Name</label>
