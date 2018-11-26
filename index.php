@@ -34,10 +34,9 @@ session_unset();
       else
       {
         // Sets session values for the user
-        $row = $test->fetch_assoc();
         $_SESSION["name"] = $_POST["username"];
-        $_SESSION["ID"] = $row["ID"];
-        $_SESSION["role"] = $row["Role"];
+        $_SESSION["ID"] = $test["ID"];
+        $_SESSION["role"] = $test["Role"];
         echo("<script>location.replace('home.php')</script>");
       }
 
