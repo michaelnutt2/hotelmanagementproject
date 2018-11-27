@@ -5,23 +5,57 @@
 </head>
 <body>
   <?php include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/header.php");?>
-  <h1>Check Out</h1>
 
-    <form style= "margin-left:500px; margin-right:500px; margin-top:20px">
+    <?php
+      $checkoutErr = "";
+      $bk = new Booking;
+      $gt = new Guests;
+
+      if($_SERVER["REQUEST_METHOD"] == "POST"){
+        // Checks if form fields were filled
+        if(empty($_POST["custName"]) AND empty($_POST["roomNum"])){
+          $checkoutErr = "Enter Guest Name or Room Number.";
+        }
+        else
+        {
+          // Pulls up information based on Guest Name
+          if(!empty($_POST["custName"])){
+            $gresult = $gt->select_one("Name",$_POST["custName"]);
+            $grow = $gresult->fetch_assoc();
+            $result = $bk->select_one("Guest_ID", $grow["ID"]);
+            $brow = $result->fetch_assoc();
+          }
+          // Pulls up information based on room number
+          elseif(!empty($_POST["roomNum"])){
+            $result = $bk->select_one("Room_ID",$_POST["roomNum"]);
+            $brow = $result->fetch_assoc();
+            $gresult = $gt->select_one("ID",$brow["Guest_ID"]);
+            $grow = $gresult->fetch_assoc();
+          }
+          $_SESSION["bResult"] = $brow;
+          $_SESSION["gResult"] = $grow;
+          echo("<script>location.replace('checkoutConfirm.php')</script>");
+        }
+      }
+
+    ?>
+
+    <form style= "margin-left:500px; margin-right:500px; margin-top:20px" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <fieldset>
-      <legend>Welcome to Guest Check Out</legend>
+      <legend>Check Out</legend>
 
       <div class="form-group">
         <label for="custName">Guest Name</label>
-        <input type="text"  class="form-control" id="custName"  placeholder="Enter Name">
+        <input type="text" name="custName" class="form-control" id="custName"  placeholder="Enter Name">
       </div>
   <center><h3> OR </h3></center>
       <div class="form-group">
-        <label for="phoneNumber">Guest Room Number</label>
-        <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter Room Number">
+        <label for="roomNum">Guest Room Number</label>
+        <input type="tel" name="roomNum" class="form-control" id="roomNum" placeholder="Enter Room Number">
       </div>
 
   <br>
+  <span class="error"><p><?php echo $checkoutErr;?></p></span>
   <button type="submit" class="btn btn-primary">Search</button>
 
 

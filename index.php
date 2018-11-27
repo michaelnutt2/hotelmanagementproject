@@ -34,10 +34,9 @@ session_unset();
       else
       {
         // Sets session values for the user
-        $row = $test->fetch_assoc();
         $_SESSION["name"] = $_POST["username"];
-        $_SESSION["ID"] = $row["ID"];
-        $_SESSION["role"] = $row["Role"];
+        $_SESSION["ID"] = $test["ID"];
+        $_SESSION["role"] = $test["Role"];
         echo("<script>location.replace('home.php')</script>");
       }
 
@@ -55,7 +54,7 @@ session_unset();
 	        <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
 	      </div>
               <span class="error"><p><?php echo $userpassErr;?></p></span>
-	            <button type="submit" class="btn btn-primary">Submit</button
+	            <button type="submit" class="btn btn-primary">Submit</button>
 	    </fieldset>
 	  </form>
 

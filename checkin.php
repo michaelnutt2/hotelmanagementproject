@@ -48,7 +48,7 @@
 
       <form style= "margin-left:500px; margin-right:500px; margin-top:20px" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
       <fieldset>
-        <legend>Welcome to Guest Check In!</legend>
+        <legend>Check In</legend>
 
         <div class="form-group">
           <label for="custName">Guest Name</label>

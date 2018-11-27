@@ -7,14 +7,14 @@ class login
   public function validate_login($username, $password){
     // $hash = password_hash($password, PASSWORD_DEFAULT);
     if($username == "")
-      return "False";
+      return False;
     $db = new Database;
     $where = 'Name="'.$username.'"';
-    $results = $db->select_one("password","user",$where);
+    $results = $db->select_one("*","user",$where);
     $row = $results->fetch_assoc();
     // echo("Row:".$row["password"]."\nHash:".$hash."\n");
     if($row["password"] == $password)
-      return $results;
+      return $row;
     else
       return False;
   }

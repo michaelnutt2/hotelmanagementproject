@@ -7,6 +7,15 @@
   </head>
   <body>
     <?php include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/header.php");?>
-    <h1>Schedules</h1>
+    <?php
+      if($_SESSION["role"] == 1)
+      {
+        header('Location: SchedViewMan.php');
+      }
+      else
+      {
+        header('Location: ScheduleViewEmployee.php');
+      }
+      ?>
   </body>
 </html>
