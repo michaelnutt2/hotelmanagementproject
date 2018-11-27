@@ -18,6 +18,18 @@
 
 <br><br>
 
+<!---Start Dropdown to select the week for the schedule --->
+<h3 style = "margin-left:150px;">Select Week To View </h3>
+<div class="form-group" style="width:20%; margin-left:150px;">
+   <select class="custom-select">
+     <option selected="">Open this select menu</option>
+     <option value="1">One</option>
+     <option value="2">Two</option>
+     <option value="3">Three</option>
+   </select>
+ </div>
+<!---End Dropdown to select the week for the schedule --->
+
 
 <!---Employee Schedule Table Start --->
   <table width ="600" class="table table-hover" style= "margin-left:150px; margin-right:150px; margin-top:25px">
