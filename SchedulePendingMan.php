@@ -39,6 +39,8 @@
   <col width="200">
   <col width="200">
   <col width="200">
+	<col width="200">
+	<col width="200">
     <thead>
       <tr>
         <th scope="col" >Employee</th>
@@ -49,7 +51,10 @@
         <th scope="col" >Thursday</th>
         <th scope="col" >Friday</th>
         <th scope="col" >Saturday</th>
-        </tr>
+				<th scope="col" >Approve</th>
+				<th scope="col" >Deny</th>
+
+				</tr>
     </thead>
     <tbody>
 
@@ -66,6 +71,9 @@ employees and their schedules here-------->
     <td>thursday sched</td>
     <td>friday sched</td>
     <td>saturday sched</td>
+		<td><button type="button" class="btn btn-success disabled">Approve</button></td>
+		<td><button type="button" class="btn btn-danger disabled">Deny</button></td>
+
   </tr>
   <!---Dark  --->
   <tr class="table-dark">
@@ -77,6 +85,9 @@ employees and their schedules here-------->
     <td>thursday sched</td>
     <td>friday sched</td>
     <td>saturday sched</td>
+				<td><button type="button" class="btn btn-success disabled">Approve</button></td>
+				<td><button type="button" class="btn btn-danger disabled">Deny</button></td>
+
   </tr>
   <!---Light--->
   <tr class="table-light">
@@ -88,6 +99,8 @@ employees and their schedules here-------->
   <td>thursday sched</td>
   <td>friday sched</td>
   <td>saturday sched</td>
+	<td><button type="button" class="btn btn-success disabled">Approve</button></td>
+	<td><button type="button" class="btn btn-danger disabled">Deny</button></td>
 </tr>
 <!---Dark --->
 <tr class="table-dark">
@@ -99,6 +112,8 @@ employees and their schedules here-------->
   <td>thursday sched</td>
   <td>friday sched</td>
   <td>saturday sched</td>
+	<td><button type="button" class="btn btn-success disabled">Approve</button></td>
+	<td><button type="button" class="btn btn-danger disabled">Deny</button></td>
 </tr>
 
 </tbody>
