@@ -8,14 +8,14 @@ class GuestsTest extends TestCase
     $gt = new Guests;
     $results = $gt->select_all();
     $row = $results->fetch_assoc();
-    $this->assertEquals("1", $row["ID"]);
+    $this->assertEquals("8", $row["ID"]);
   }
 
   public function testSelectOne(){
     $gt = new Guests;
-    $results = $gt->select_one("ID","1");
+    $results = $gt->select_one("ID","8");
     $row = $results->fetch_assoc();
-    $this->assertEquals("1", $row["ID"]);
+    $this->assertEquals("8", $row["ID"]);
   }
 
   public function testSelectOneNotFound(){
@@ -25,3 +25,4 @@ class GuestsTest extends TestCase
     $this->assertEquals(null, $row["ID"]);
   }
 }
+?>

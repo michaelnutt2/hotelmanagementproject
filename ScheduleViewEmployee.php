@@ -24,14 +24,15 @@
 
 
 <!---Start Dropdown to select the week for the schedule --->
-<div class="form-group" style="width:20%; margin-left:250px;">
+<!-- Temporarily hiding, will show if set up schedules to be unique weekly -->
+<!-- <div class="form-group" style="width:20%; margin-left:250px;">
    <select class="custom-select">
      <option selected="">Open this select menu</option>
      <option value="1">One</option>
      <option value="2">Two</option>
      <option value="3">Three</option>
    </select>
- </div>
+ </div> -->
 <!---End Dropdown to select the week for the schedule --->
 <br>
 

@@ -11,3 +11,4 @@ class RoomsTest extends TestCase
     $this->assertEquals(1, $row["ID"]);
   }
 }
+?>

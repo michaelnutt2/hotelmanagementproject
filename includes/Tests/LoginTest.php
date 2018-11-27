@@ -7,7 +7,7 @@ class LoginTest extends TestCase
   public function testValidateLoginValidUsernameValidPassword(){
     $lg = new login;
     $test = $lg->validate_login("testM", "test");
-    $this->assertEquals(3, $test["ID"]);
+    $this->assertEquals(1, $test["ID"]);
   }
 
   public function testValidateLoginValidUsernameInvalidPassword(){
@@ -38,6 +38,7 @@ class LoginTest extends TestCase
     $lg = new login;
     $results = $lg->select_one("Name","'testM'");
     $row = $results->fetch_assoc();
-    $this->assertEquals(3, $row["ID"]);
+    $this->assertEquals(1, $row["ID"]);
   }
 }
+?>

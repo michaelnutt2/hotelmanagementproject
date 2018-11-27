@@ -21,21 +21,21 @@ class BookingTest extends TestCase
 
   public function testSelectOneByValidGuestID(){
     $bk = new Booking;
-    $results = $bk->select_one("Guest_ID","1");
+    $results = $bk->select_one("Guest_ID","8");
     $row = $results->fetch_assoc();
     $this->assertEquals("1009",$row["ID"]);
   }
 
   public function testSelectOneByValidStart(){
     $bk = new Booking;
-    $results = $bk->select_one("start","20181110");
+    $results = $bk->select_one("start","20181127");
     $row = $results->fetch_assoc();
     $this->assertEquals("1009",$row["ID"]);
   }
 
   public function testSelectOneByValidStop(){
     $bk = new Booking;
-    $results = $bk->select_one("stop","20181111");
+    $results = $bk->select_one("stop","20181128");
     $row = $results->fetch_assoc();
     $this->assertEquals("1009",$row["ID"]);
   }
