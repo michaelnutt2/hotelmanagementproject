@@ -22,6 +22,18 @@
 </center>
 <br><br>
 
+<?php
+  $sc = new Schedule;
+  $results = $sc->select_specific("Week","EID",$_SESSION["ID"]);
+  $row = $results->fetch_assoc();
+  $default = $row["Week"];
+  if($_SERVER["REQUEST_METHOD"]=="POST"){
+    $default=$_POST["week"];
+  } else {
+    $default=date("W");
+  }
+?>
+
 
 <!---Start Dropdown to select the week for the schedule --->
 <h3 style ="margin-left:150px; float: left;">Select Week To View</h3>
@@ -34,11 +46,18 @@
         $default = $row["Week"];
         do
         {
-          echo "<option value='".$row["Week"]."'>".$row["Week"]."</option>";
-        } while($row=$results->fetch_assoc());
+          if($row["Week"]!=$default){
+            echo "<option value='".$row["Week"]."'>".date('m-d',strtotime("2018W".$row["Week"]))."</option>";
+          }
+        }
+        while($row=$results->fetch_assoc());
       ?>
-   </select>
- </div>
+    </select>
+   </div>
+<!---End Dropdown to select the week for the schedule --->
+  <button style = "float: right; margin-right:1000px; margin-top:-50px; " type="submit" class="btn btn-outline-info">Update</button>
+</form>
+
 <!---End Dropdown to select the week for the schedule --->
 <br>
 
