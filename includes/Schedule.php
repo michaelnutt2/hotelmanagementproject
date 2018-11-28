@@ -12,13 +12,24 @@ class Schedule
 	}
 
 	// Selects one user based on Employee ID(ID)
-	public function select_one($type, $value){
+	public function select_one($query){
+    $db = new Database;
+    $result = $db->select_one("*","schedule",$query);
+		return $result;
+	}
+
+  public function select_specific($what, $type, $value){
     $db = new Database;
     $query = $type."=".$value;
-    $result = $db->select_one("*","schedule",$query);
-    $row = $result->fetch_assoc();
-		return $row;
-	}
+    $result = $db->select_one($what,"schedule",$query);
+    return $result;
+  }
+
+  public function select_distinct(){
+    $db = new Database;
+    $result = $db->select("distinct Week","schedule");
+    return $result;
+  }
 
   // Used for setting up a new user
   public function create_new(){

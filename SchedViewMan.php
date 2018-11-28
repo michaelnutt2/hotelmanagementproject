@@ -23,16 +23,24 @@
 <div class="form-group" style="width:20%; margin-left:150px;">
    <select class="custom-select">
      <option selected="">Open this select menu</option>
-     <option value="1">One</option>
-     <option value="2">Two</option>
-     <option value="3">Three</option>
+     <?php
+      $sc = new Schedule;
+      $results = $sc->select_distinct();
+      $row = $results->fetch_assoc();
+      $default=$row["Week"];
+      do
+      {
+        echo "<option value='".$row["Week"]."'>".$row["Week"]."</option>";
+      }
+      while($row=$results->fetch_assoc());
+    ?>
    </select>
  </div>
 <!---End Dropdown to select the week for the schedule --->
 
 
 <!---Employee Schedule Table Start --->
-  <table width ="600" class="table table-hover" style= "margin-left:150px; margin-right:150px; margin-top:25px">
+  <table width ="600" class="table" style= "margin-left:150px; margin-right:150px; margin-top:25px">
   <col width="200">
   <col width="200">
   <col width="200">
@@ -59,49 +67,37 @@
 employees and their schedules here-------->
 
 <!---Light --->
-  <tr class="table-light">
-    <th scope="row">Employee 1</th>
-    <td>Sunday sched</td>
-    <td>Moday sched</td>
-    <td>tuesday sched</td>
-    <td>wednesday sched</td>
-    <td>thursday sched</td>
-    <td>friday sched</td>
-    <td>saturday sched</td>
-  </tr>
-  <!---Dark  --->
-  <tr class="table-dark">
-    <th scope="row">Employee 2</th>
-    <td>Sunday sched</td>
-    <td>Moday sched</td>
-    <td>tuesday sched</td>
-    <td>wednesday sched</td>
-    <td>thursday sched</td>
-    <td>friday sched</td>
-    <td>saturday sched</td>
-  </tr>
-  <!---Light--->
-  <tr class="table-light">
-  <th scope="row">Employee 3</th>
-  <td>Sunday sched</td>
-  <td>Moday sched</td>
-  <td>tuesday sched</td>
-  <td>wednesday sched</td>
-  <td>thursday sched</td>
-  <td>friday sched</td>
-  <td>saturday sched</td>
-</tr>
-<!---Dark --->
-<tr class="table-dark">
-  <th scope="row">Employee 4</th>
-  <td>Sunday sched</td>
-  <td>Moday sched</td>
-  <td>tuesday sched</td>
-  <td>wednesday sched</td>
-  <td>thursday sched</td>
-  <td>friday sched</td>
-  <td>saturday sched</td>
-</tr>
+  <?php
+    $days = array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+    $i = 0;
+    $sc = new Schedule;
+    $query = "Week=".$default;
+    $results = $sc->select_one($query);
+    while($row=$results->fetch_assoc())
+    {
+      $lg = new login;
+      $result = $lg->select_one("ID",$row["EID"]);
+      $us = $result->fetch_assoc();
+      if(($i % 2) == 0){
+        echo '<tr class="table-light">';
+      } else {
+        echo '<tr class="table-dark">';
+      }
+      $i = $i + 1;
+      echo '<th scope="row">'.$us["Name"].'</th>';
+      for($x = 0; $x < 7; $x++)
+      {
+        $time = $row[$days[$x]];
+        if($time == null){
+          $time = "Off";
+          echo "<td>Off</td>";
+        } else {
+          echo "<td>".date('g:i',strtotime($row[$days[$x]]))."</td>";
+        }
+      }
+      echo "</tr>";
+    }
+  ?>
 
 </tbody>
 </table>
