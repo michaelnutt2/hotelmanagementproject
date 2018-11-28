@@ -24,9 +24,9 @@
 
 
 <!---Start Dropdown to select the week for the schedule --->
+<h3 style = "margin-left:150px;">Select Week To View</h3>
 <div class="form-group" style="width:20%; margin-left:250px;">
    <select class="custom-select">
-     <option selected="">Select Week</option>
      <?php
         $sc = new Schedule;
         $results = $sc->select_specific("Week","EID",$_SESSION["ID"]);
