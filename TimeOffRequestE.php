@@ -18,7 +18,7 @@
 <!--- INSERT FORM TO Request off HERE  --->
 <form style= "float: left; margin-left:250px;  margin-top:20px">
   <fieldset>
-    <legend>Time Off Request</legend>
+    <legend><h3>Time Off Request</h3></legend>
 
     <div class="form-group" style = "width:50%;">
   <select class="custom-select">
