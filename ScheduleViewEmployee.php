@@ -24,7 +24,7 @@
 
 
 <!---Start Dropdown to select the week for the schedule --->
-<h3 style = "margin-left:150px;">Select Week To View</h3>
+<h3 style ="margin-left:150px; float: left;">Select Week To View</h3>
 <div class="form-group" style="width:20%; margin-left:250px;">
    <select class="custom-select">
      <?php
@@ -41,6 +41,8 @@
  </div>
 <!---End Dropdown to select the week for the schedule --->
 <br>
+
+<button style = "float: right; margin-right:1000px; margin-top:-50px; " type="button" class="btn btn-outline-info">Update</button>
 
 <!---Employee Schedule Table Start --->
 <?php
