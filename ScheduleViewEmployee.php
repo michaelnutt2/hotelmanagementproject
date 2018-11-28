@@ -56,13 +56,14 @@
     </select>
    </div>
 <!---End Dropdown to select the week for the schedule --->
-  <button style = "float: right; margin-right:1000px; margin-top:-50px; " type="submit" class="btn btn-outline-info">Update</button>
+  <button style = "float:right; margin-right:900px; margin-top:-50px; " type="submit" class="btn btn-outline-info">Update</button>
 </form>
 
 <!---End Dropdown to select the week for the schedule --->
 <br>
 
 <!---Employee Schedule Table Start --->
+<center>
 <?php
   $sc = new Schedule;
   $query = "Week=".$default." AND EID=".$_SESSION["ID"];
@@ -152,7 +153,7 @@
 
 </tbody>
 </table>
-
+</center>
 <!---Employee Schedule Table End --->
 
 </body>
