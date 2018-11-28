@@ -27,7 +27,7 @@ class Schedule
 
   public function select_distinct(){
     $db = new Database;
-    $result = $db->select("distinct Week","schedule");
+    $result = $db->select("distinct Week","schedule ORDER BY Week");
     return $result;
   }
 

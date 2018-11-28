@@ -24,7 +24,8 @@
 
 <?php
   $sc = new Schedule;
-  $results = $sc->select_specific("Week","EID",$_SESSION["ID"]);
+  $value = $_SESSION["ID"]." ORDER BY Week";
+  $results = $sc->select_specific("Week","EID",$value);
   $row = $results->fetch_assoc();
   $default = $row["Week"];
   if($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -41,14 +42,16 @@
   <div class="form-group" style="width:20%; margin-left:150px;">
      <select class="custom-select" name="week">
        <?php
-        echo "<option value=".$default." selected>".date('m-d',strtotime("2018W".$default))."</option>";
-        do
-        {
-          if($row["Week"]!=$default){
-            echo "<option value='".$row["Week"]."'>".date('m-d',strtotime("2018W".$row["Week"]))."</option>";
-          }
-        }
-        while($row=$results->fetch_assoc());
+       do
+       {
+         if($row["Week"]!=$default){
+           echo "<option value='".$row["Week"]."'>".date('m-d',strtotime("2018W".$row["Week"]))."</option>";
+         }
+         else{
+           echo "<option value=".$default." >".date('m-d',strtotime("2018W".$default))." (selected)</option>";
+         }
+       }
+       while($row=$results->fetch_assoc());
       ?>
     </select>
    </div>
@@ -58,8 +61,6 @@
 
 <!---End Dropdown to select the week for the schedule --->
 <br>
-
-<button style = "float: right; margin-right:1000px; margin-top:-50px; " type="button" class="btn btn-outline-info">Update</button>
 
 <!---Employee Schedule Table Start --->
 <?php

@@ -34,11 +34,13 @@
   <div class="form-group" style="width:20%; margin-left:150px;">
      <select class="custom-select" name="week">
        <?php
-        echo "<option value=".$default." selected>".date('m-d',strtotime("2018W".$default))."</option>";
         do
         {
           if($row["Week"]!=$default){
             echo "<option value='".$row["Week"]."'>".date('m-d',strtotime("2018W".$row["Week"]))."</option>";
+          }
+          else{
+            echo "<option value=".$default." >".date('m-d',strtotime("2018W".$default))." (selected)</option>";
           }
         }
         while($row=$results->fetch_assoc());
