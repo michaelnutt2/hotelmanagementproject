@@ -36,14 +36,12 @@
 
 
 <!---Start Dropdown to select the week for the schedule --->
-<h3 style ="margin-left:150px; float: left;">Select Week To View</h3>
-<div class="form-group" style="width:20%; margin-left:250px;">
-   <select class="custom-select">
-     <?php
-        $sc = new Schedule;
-        $results = $sc->select_specific("Week","EID",$_SESSION["ID"]);
-        $row = $results->fetch_assoc();
-        $default = $row["Week"];
+<h3 style ="margin-left:150px; float: left;">Select Week To View </h3>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+  <div class="form-group" style="width:20%; margin-left:150px;">
+     <select class="custom-select" name="week">
+       <?php
+        echo "<option value=".$default." selected>".date('m-d',strtotime("2018W".$default))."</option>";
         do
         {
           if($row["Week"]!=$default){
