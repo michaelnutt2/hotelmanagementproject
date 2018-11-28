@@ -36,7 +36,7 @@
    </select>
  </div>
 <!---End Dropdown to select the week for the schedule --->
-<button type="button" class="btn btn-outline-info">Update</button>
+<button style = "float: right; margin-right:400px;" type="button" class="btn btn-outline-info">Update</button>
 
 
 
