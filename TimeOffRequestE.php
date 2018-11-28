@@ -20,7 +20,7 @@
   <fieldset>
     <legend>Time Off Request</legend>
 
-    <div class="form-group">
+    <div class="form-group" style = "width:50%;">
   <select class="custom-select">
     <option selected="">Reason for Request Off</option>
     <option value="1">Vacation</option>
@@ -32,15 +32,58 @@
   </select>
 </div>
 
-    <div class="form-group">
-      <label for="startDate">Start Date</label>
-      <input type="date" class="form-control" id="startDate" placeholder="00/00/0000">
-    </div>
-    <div class="form-group">
-      <label for="endDate">End Date</label>
-      <input type="date" class="form-control" id="endDate" placeholder="00/00/0000">
-    </div>
-    
+<div class="form-group" style = "width:50%;">
+<select class="custom-select">
+<option selected="">Employee</option>
+<option value="1">1</option>
+<option value="2">2</option>
+</select>
+</div>
+
+      <div class="form-check" style = "margin-left:50px; ">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" value="" checked="">
+          Sunday
+        </label>
+      </div>
+			<div class="form-check" style = "margin-left:50px; ">
+				<label class="form-check-label">
+					<input class="form-check-input" type="checkbox" value="" checked="">
+					Monday
+				</label>
+			</div>
+			<div class="form-check" style = "margin-left:50px; ">
+				<label class="form-check-label">
+					<input class="form-check-input" type="checkbox" value="" checked="">
+					Tuesday
+				</label>
+			</div>
+			<div class="form-check" style = "margin-left:50px; ">
+				<label class="form-check-label">
+					<input class="form-check-input" type="checkbox" value="" checked="">
+					Wednesday
+				</label>
+			</div>
+			<div class="form-check" style = "margin-left:50px; ">
+				<label class="form-check-label">
+					<input class="form-check-input" type="checkbox" value="" checked="">
+					Thursday
+				</label>
+			</div>
+			<div class="form-check" style = "margin-left:50px; ">
+				<label class="form-check-label">
+					<input class="form-check-input" type="checkbox" value="" checked="">
+					Friday
+				</label>
+			</div>
+			<div class="form-check" style = "margin-left:50px; ">
+				<label class="form-check-label">
+					<input class="form-check-input" type="checkbox" value="" checked="">
+					Saturday
+				</label>
+			</div>
+<br>
+
   <button type="submit" class="btn btn-primary">Submit Request</button>
   <br>
 </fieldset>
@@ -63,7 +106,6 @@
  </div>
 
 <button type="button" class="btn btn-primary btn-lg"  style="float: right; margin-right:375px; ">Cancel</button>
-
 
 <!---End Dropdown to select the week for the schedule --->
 
