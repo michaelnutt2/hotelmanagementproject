@@ -40,15 +40,7 @@
       <label for="endDate">End Date</label>
       <input type="date" class="form-control" id="endDate" placeholder="00/00/0000">
     </div>
-    <div class="form-group">
-      <label for="startDate">Start Time</label>
-      <input type="time" class="form-control" id="startTime" placeholder="HH:MM">
-    </div>
-    <div class="form-group">
-      <label for="endDate">End Time</label>
-      <input type="time" class="form-control" id="endTime" placeholder="HH:MM">
-    </div>
-
+    
   <button type="submit" class="btn btn-primary">Submit Request</button>
   <br>
 </fieldset>
