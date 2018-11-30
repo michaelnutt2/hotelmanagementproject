@@ -7,19 +7,28 @@
   </head>
   <body>
     <?php include("includes/header.php");?>
-    <form style= "margin-left:500px; margin-right:500px; margin-top:20px">
-  <fieldset>
-    <legend>Click Below to View Employment Documents</legend>
+<br>
+    <center>
+    <form>
+    <a href="Documents/eeopost.pdf">
+    <img src="Documents/EEo.jpg" alt="EEO" style="width:300px;height:400px;">
+    </a>
 
-   <a href="Documents/eeopost.pdf" class="btn btn-primary btn-lg">Equal Employment Opportunities</a>
-   <br><br/>
-   <a href="Documents/minwage.pdf" class="btn btn-primary btn-lg">Minimum Wage Law</a>
-   <br><br/>
-   <a href="Documents/osha3165.pdf" class="btn btn-primary btn-lg">Occupational Safety and Health</a>
+    <a href="Documents/osha3165.pdf">
+    <img src="Documents/osha.jpg" alt="OSHA" style="width:300px;height:400px;">
+    </a>
+
+    <a href="Documents/minwage.pdf">
+    <img src="Documents/minwage.jpg" alt="MinWage" style="width:300px;height:400px;">
+    </a>
+
+    <a href="Documents/fmla.pdf">
+    <img src="Documents/fmla.jpg" alt="FMLA" style="width:300px;height:400px;">
+    </a>
+
+    <form>
+    </center>
 
 
-
-  </fieldset>
-</form>
   </body>
 </html>
