@@ -41,7 +41,7 @@
 
 
 <!---Start Dropdown to select the week for the schedule --->
-<h3 style ="margin-left:150px; float: left;">Select Week To View </h3>
+<h3 style ="margin-left:250px; float: left;">Select Week To View </h3>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
   <div class="form-group" style="width:20%; margin-left:150px;">
      <select class="custom-select" name="week">
@@ -159,6 +159,7 @@
 </table>
 </center>
 <!---Employee Schedule Table End --->
+<br><br>
 
 </body>
 </html>

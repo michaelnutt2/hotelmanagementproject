@@ -59,7 +59,7 @@
     <button type="submit" class="btn btn-primary">Search</button>
 
 
-    <br><br>
+    <br>
     <?php
     if($_SERVER["REQUEST_METHOD"]=="POST"){
       if(!empty($_POST["custName"] && !$test)){
