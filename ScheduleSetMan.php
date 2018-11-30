@@ -91,15 +91,15 @@
 
 
  <div style="width:50%;"class="form-group">
-	 <label for="startDate">Sunday</label>
+	 <label for="startDate">Monday</label>
 	 <input type="time" class="form-control" id="startTime" placeholder="HH:MM">
  </div>
  <div class="form-group" style="width:50%;">
-	 <label for="endDate">Monday</label>
+	 <label for="endDate">Tuesday</label>
 	 <input type="time" class="form-control" id="endTime" placeholder="HH:MM">
  </div>
  <div class="form-group" style="width:50%;">
-	 <label for="endDate">Tuesday</label>
+	 <label for="endDate">Wednesday</label>
 	 <input type="time" class="form-control" id="endTime" placeholder="HH:MM">
  </div>
 
@@ -109,21 +109,21 @@
 </form>
 
 
- <form style = "float:left; width:30%; ">
+ <form style = "float:left; width:30%; margin-top:-20px; ">
  <div class="form-group" style="width:50%;">
-	<label for="endDate">Wednesday</label>
+	<label for="endDate">Thursday</label>
 	<input type="time" class="form-control" id="endTime" placeholder="HH:MM">
  </div>
  <div class="form-group" style="width: 50%;">
-	 <label for="endDate">Thursday</label>
-	 <input type="time" class="form-control" id="endTime" placeholder="HH:MM">
- </div>
- <div class="form-group" style="width:50%;">
 	 <label for="endDate">Friday</label>
 	 <input type="time" class="form-control" id="endTime" placeholder="HH:MM">
  </div>
  <div class="form-group" style="width:50%;">
 	 <label for="endDate">Saturday</label>
+	 <input type="time" class="form-control" id="endTime" placeholder="HH:MM">
+ </div>
+ <div class="form-group" style="width:50%;">
+	 <label for="endDate">Sunday</label>
 	 <input type="time" class="form-control" id="endTime" placeholder="HH:MM">
  </div>
 
