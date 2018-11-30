@@ -24,5 +24,11 @@ class PTO
     return $result;
   }
 
+  public function select_distinct(){
+    $db = new Database;
+    $result = $db->select("distinct Week","PTO ORDER BY Week");
+    return $result;
+  }
+
 }
 ?>

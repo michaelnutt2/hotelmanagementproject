@@ -14,16 +14,41 @@
 <?php include("includes/scheduleNavbar.php");?>
 
 <!---End second navbar --->
+<?php
+   $pt = new PTO;
+   $results = $pt->select_distinct();
+   $row = $results->fetch_assoc();
+   if($_SERVER["REQUEST_METHOD"] == "POST"){
+     $default=$_POST["Week"];
+   }
+?>
 
 <br><br>
 <!---Start Dropdown to select the week for the schedule --->
 <h3 style = "margin-left:150px;">Select Week To View </h3>
 <div class="form-group" style="width:20%; margin-left:150px;">
    <select class="custom-select">
-     <option selected="">Open this select menu</option>
-     <option value="1">One</option>
-     <option value="2">Two</option>
-     <option value="3">Three</option>
+     <?php
+        do{
+          if($row["Week"]!=$default){
+            $i = $row["Week"];
+            if($i < 10){
+              echo '<option value="'.$i.'">'.date("m-d",strtotime(date("Y")."W0".$i)).'</option>';
+            } else {
+              echo '<option value="'.$i.'">'.date("m-d",strtotime(date("Y")."W".$i)).'</option>';
+            }
+          }
+          else{
+            $i = $default;
+            if($i < 10){
+              echo '<option value="'.$i.'">'.date("m-d",strtotime(date("Y")."W0".$i)).'</option>';
+            } else {
+              echo '<option value="'.$i.'">'.date("m-d",strtotime(date("Y")."W".$i)).'</option>';
+            }
+          }
+        }
+        while($row=$results->fetch_assoc());
+     ?>
    </select>
  </div>
 <!---End Dropdown to select the week for the schedule --->
