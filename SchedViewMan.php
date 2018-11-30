@@ -1,5 +1,5 @@
 <?php
-  if(!$_SESSION["role"]==1){
+  if($_SESSION["role"]==1){
     header('Location:ScheduleViewEmployee.php');
   }
 ?>
