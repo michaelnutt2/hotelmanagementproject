@@ -5,7 +5,7 @@ class Database
 {
   // Connect to Database
   public function conn(){
-    $server = "localhost";
+    $server = "michaelnutt.info";
     $username = "hotel";
     $password = "hotel";
     $dbname = "hotel";
