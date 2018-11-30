@@ -18,16 +18,10 @@ class PTO
     $db = new Database;
     $where = "PTO";
     $fields = "EID,Week,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday,Status,Reason";
-    $data = $EID.",".$week.",".$off[0].",".$off[1].",".$off[2].",".$off[3].",".$off[4].",";
-    $data .= $off[5].",".$off[6].",'Pending','".$reason."'";
+    $data = $EID.",".$week.",".$off['Monday'].",".$off['Tuesday'].",".$off['Wednesday'].",".$off['Thursday'].",".$off['Friday'].",";
+    $data .= $off['Saturday'].",".$off['Sunday'].",'Pending','".$reason."'";
     $result = $db->insert($fields,$data,$where);
     return $result;
-  }
-  public function delete_row($ID, $week){
-    $db = new Database;
-    $query = "EID=".$ID." AND Week=".$week;
-    $db->delete("PTO",$query);
-    return;
   }
 
 }

@@ -74,13 +74,6 @@ class Database
     $conn->close();
     return $results;
   }
-  public function delete($table,$query){
-    $conn = $this->conn();
 
-    $sql = "DELETE * FROM ".$table." WHERE ".$query;
-    if($conn->query($sql) == False){
-      echo "<script>console.log(".$conn->error.")</script>";
-    }
-  }
 }
 ?>
