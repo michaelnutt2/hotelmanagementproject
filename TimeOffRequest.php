@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+ <!DOCTYPE HTML>
 <html lang="en">
 <head>
 	<title>Hotel Management System</title>
@@ -11,24 +11,30 @@
   <!---NavBar End --->
 
 <!---Start second navbar --->
-<?php include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/scheduleNavbar.php");?>
+<?php include("includes/scheduleNavbar.php");?>
 
 <!---End second navbar --->
 <?php
+  $pt = new PTO;
   $ptoErr = "";
   $ptoSuccess = "";
+  $Week = "";
   $days = array("Monday"=>0,"Tuesday"=>0,"Wednesday"=>0,"Thursday"=>0,"Friday"=>0,"Saturday"=>0,"Sunday"=>0);
   if($_SERVER["REQUEST_METHOD"]=="POST"){
-    foreach($days as $day => $val){
-      if(isset($_POST[$day])){
-        $val = 1;
+    if(isset($_POST["submit"])){
+      foreach($days as $day => $val){
+        if(isset($_POST[$day])){
+          $val = 1;
+        }
       }
-    }
-    $pt = new PTO;
-    if($pt->create_new($days,$_SESSION["ID"],$_POST["week"],$_POST["reason"]) == FALSE){
-      $ptoErr = "Request failed, please try again.";
+      if($pt->create_new($days,$_SESSION["ID"],$_POST["week"],$_POST["reason"]) == False){
+        $ptoErr = "Request failed, please try again.";
+      } else {
+        $ptoSuccess = "Time Off Request Submitted!";
+      }
     } else {
-      $ptoSuccess = "Time Off Request Submitted!";
+      $week = $_POST["Cancel"];
+      $pt->delete_row($_SESSION["ID"],$_POST["cancel"]);
     }
   }
 ?>
@@ -41,12 +47,12 @@
     <div class="form-group" style = "width:50%;">
   <select class="custom-select" name="reason">
     <option selected="">Reason for Request Off</option>
-    <option value="1">Vacation</option>
-    <option value="2">Sick</option>
-    <option value="3">Maternity/Paternity</option>
-    <option value="4">Emergency</option>
-    <option value="5">Bereavement</option>
-    <option value="6">Other</option>
+    <option value="Vacation">Vacation</option>
+    <option value="Sick">Sick</option>
+    <option value="Maternity/Paternity">Maternity/Paternity</option>
+    <option value="Emergency">Emergency</option>
+    <option value="Bereavement">Bereavement</option>
+    <option value="Other">Other</option>
   </select>
 </div>
 
@@ -108,33 +114,39 @@ for($i=1;$i<53;$i++){
       </div>
 <br>
   <span class="error"><p><?php echo $ptoErr;?></p></span>
-  <button type="submit" class="btn btn-primary">Submit Request</button>
+  <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit Request</button>
+  <p><center><?php echo $ptoSuccess;?></center></p>
   <br>
 </fieldset>
 </form>
+
 <!--- END FORM TO Request off HERE  --->
 <br><br>
-<h3 style="display: none;"><center><?php echo $ptoSuccess;?></center></h3>
-
 
 <!---Start Dropdown to select the week for the schedule --->
+<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <h3 style="float: right; margin-right:300px; " >Cancel a Previous Request Off</h3>
 <h5 style="float: right; margin-right:420px; ">Select the entry to cancel</h5>
 <div class="form-group" style="width:20%; float: right; margin-right:360px;">
-   <select class="custom-select">
+   <select class="custom-select" name="Cancel">
      <option selected="">Pending Requests</option>
      <?php
       $pt = new PTO;
       $results = $pt->select_one($_SESSION["ID"]);
       while($row=$results->fetch_assoc())
       {
-        echo "<option value='".$row["ID"]."'>".date("m-d-y",date("Y")."W".$row["Week"])."</option>";
+        if($row["Week"] < 10){
+          echo '<option value="'.$row["Week"].'">'.date("m-d",strtotime(date("Y")."W0".$row["Week"])).'</option>';
+        } else {
+          echo '<option value="'.$row["Week"].'">'.date("m-d",strtotime(date("Y")."W".$row["Week"])).'</option>';
+        }
       }
      ?>
    </select>
  </div>
 
-<button type="button" class="btn btn-primary btn-lg"  style="float: right; margin-right:375px; ">Cancel</button>
+<button type="submit" class="btn btn-primary btn-lg"  style="float: right; margin-right:375px; " name="cancel" value="cancel">Cancel</button>
+</form>
 
 <!---End Dropdown to select the week for the schedule --->
 
