@@ -126,18 +126,6 @@ for($i=1;$i<53;$i++){
 <div class="form-group" style="width:20%; float: right; margin-right:360px;">
    <select class="custom-select" name="Cancel">
      <option selected="">Pending Requests</option>
-     <?php
-      $pt = new PTO;
-      $results = $pt->select_one($_SESSION["ID"]);
-      while($row=$results->fetch_assoc())
-      {
-        if($row["Week"] < 10){
-          echo '<option value="'.$row["ID"].'">'.date("m-d",strtotime(date("Y")."W0".$row["Week"])).'</option>';
-        } else {
-          echo '<option value="'.$row["ID"].'">'.date("m-d",strtotime(date("Y")."W".$row["Week"])).'</option>';
-        }
-      }
-     ?>
    </select>
  </div>
 

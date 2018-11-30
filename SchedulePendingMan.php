@@ -20,6 +20,14 @@
    $row = $results->fetch_assoc();
    if($_SERVER["REQUEST_METHOD"] == "POST"){
      $default=$_POST["Week"];
+   } else {
+     $default=9;
+   }
+
+   if($_SERVER["REQUEST_METHOD"] == "POST"){
+     if(isset($_POST["Approve"])){
+       $pt->update();
+     }
    }
 ?>
 
@@ -41,9 +49,9 @@
           else{
             $i = $default;
             if($i < 10){
-              echo '<option value="'.$i.'">'.date("m-d",strtotime(date("Y")."W0".$i)).'</option>';
+              echo '<option value="'.$i.'">'.date("m-d",strtotime(date("Y")."W0".$i)).' (selected)</option>';
             } else {
-              echo '<option value="'.$i.'">'.date("m-d",strtotime(date("Y")."W".$i)).'</option>';
+              echo '<option value="'.$i.'">'.date("m-d",strtotime(date("Y")."W".$i)).' (selected)</option>';
             }
           }
         }
@@ -86,60 +94,39 @@
 <!--- Michael, youll have to loop in php to print the
 employees and their schedules here-------->
 
-<!---Light --->
-  <tr class="table-light">
-    <th scope="row">Employee 1</th>
-    <td>Sunday sched</td>
-    <td>Moday sched</td>
-    <td>tuesday sched</td>
-    <td>wednesday sched</td>
-    <td>thursday sched</td>
-    <td>friday sched</td>
-    <td>saturday sched</td>
-		<td><button type="button" class="btn btn-success disabled">Approve</button></td>
-		<td><button type="button" class="btn btn-danger disabled">Deny</button></td>
-
-  </tr>
-  <!---Dark  --->
-  <tr class="table-dark">
-    <th scope="row">Employee 2</th>
-    <td>Sunday sched</td>
-    <td>Moday sched</td>
-    <td>tuesday sched</td>
-    <td>wednesday sched</td>
-    <td>thursday sched</td>
-    <td>friday sched</td>
-    <td>saturday sched</td>
-				<td><button type="button" class="btn btn-success disabled">Approve</button></td>
-				<td><button type="button" class="btn btn-danger disabled">Deny</button></td>
-
-  </tr>
-  <!---Light--->
-  <tr class="table-light">
-  <th scope="row">Employee 3</th>
-  <td>Sunday sched</td>
-  <td>Moday sched</td>
-  <td>tuesday sched</td>
-  <td>wednesday sched</td>
-  <td>thursday sched</td>
-  <td>friday sched</td>
-  <td>saturday sched</td>
-	<td><button type="button" class="btn btn-success disabled">Approve</button></td>
-	<td><button type="button" class="btn btn-danger disabled">Deny</button></td>
-</tr>
-<!---Dark --->
-<tr class="table-dark">
-  <th scope="row">Employee 4</th>
-  <td>Sunday sched</td>
-  <td>Moday sched</td>
-  <td>tuesday sched</td>
-  <td>wednesday sched</td>
-  <td>thursday sched</td>
-  <td>friday sched</td>
-  <td>saturday sched</td>
-	<td><button type="button" class="btn btn-success disabled">Approve</button></td>
-	<td><button type="button" class="btn btn-danger disabled">Deny</button></td>
-</tr>
+<?php
+  if($default!=""){
+    $days = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
+    $i = 0;
+    $pt = new PTO;
+    $query = "Week=".$default;
+    $results = $pt->select_one($query);
+    while($row=$results->fetch_assoc())
+    {
+      $lg = new login;
+      $result = $lg->select_one("ID",$row["EID"]);
+      $us = $result->fetch_assoc();
+      if(($i % 2) == 0){
+        echo '<tr class="table-light">';
+      } else {
+        echo '<tr class="table-dark">';
+      }
+      $i = $i + 1;
+      echo '<th scope="row">'.$us["Name"].'</th>';
+      for($x = 0; $x < 7; $x++)
+      {
+        if($row[$days[$x]] == 1){
+          echo "<td>Off</td>";
+        } else {
+          echo "<td></td>";
+        }
+      }
+      echo "<td><button type='submit' class='btn btn-success disable' name='Approve'>Approve</button></td>";
+      echo "<td><button type='submit' class='btn btn-danger disable' name='Deny'>Deny</button></td>";
+      echo "</tr>";
+    }
+  }
+?>
 
 </tbody>
 </table>
