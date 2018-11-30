@@ -11,8 +11,8 @@
   <br> <h3>Welcome to Heartbreak Hotel!</h3>
 <center>
     <form>
-    <img src="HH3.jpg" alt="Heartbreak Hotel" width="600" height="500" alt=""/>
-    <img src="HH2.jpg" alt="Heartbreak Hotel" width="600" height="500" alt=""/>
+    <img src="images/HH3.jpg" alt="Heartbreak Hotel" width="600" height="500" alt=""/>
+    <img src="images/HH2.jpg" alt="Heartbreak Hotel" width="600" height="500" alt=""/>
   </form>
   <br><br>
 </center>
