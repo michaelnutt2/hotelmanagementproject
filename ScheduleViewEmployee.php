@@ -1,4 +1,8 @@
-<!DOCTYPE HTML>
+<?php
+  if(!$_SESSION["role"]==0){
+    header('Location:SchedViewMan.php');
+  }
+?><!DOCTYPE HTML>
 <html lang="en">
 <head>
 	<title>Hotel Management System</title>
@@ -6,11 +10,11 @@
 </head>
 <body>
 <!---NavBar Start --->
-<?php include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/header.php");?>
+<?php include("includes/header.php");?>
 <!---NavBar End --->
 
 <!---Start second navbar --->
-<?php include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/scheduleNavbar.php");?>
+<?php include("includes/scheduleNavbar.php");?>
 
 <!---End second navbar --->
 
@@ -80,6 +84,66 @@
         </tr>
     </thead>
     <tbody>
+  <!---Dark Monday --->
+  <tr class="table-light">
+    <th scope="row">Monday</th>
+    <td><?php
+      if($results["Monday"] == null){
+        echo "Off";
+      } else {
+        echo date('g:i',strtotime($results["Monday"]))." am";
+      }?></td>
+  </tr>
+  <!---Light Tuesday --->
+  <tr class="table-dark">
+  <th scope="row">Tuesday</th>
+  <td><?php
+    if($results["Tuesday"] == null){
+      echo "Off";
+    } else {
+      echo date('g:i',strtotime($results["Tuesday"]))." am";
+    }?></td>
+</tr>
+<!---Dark Wednesday --->
+<tr class="table-light">
+  <th scope="row">Wednesday</th>
+  <td><?php
+    if($results["Wednesday"] == null){
+      echo "Off";
+    } else {
+      echo date('g:i',strtotime($results["Wednesday"]))." am";
+    }?></td>
+</tr>
+<!--- Light Thursday --->
+<tr class="table-dark">
+<th scope="row">Thursday</th>
+<td><?php
+  if($results["Thursday"] == null){
+    echo "Off";
+  } else {
+    echo date('g:i',strtotime($results["Thursday"]))." am";
+  }?></td>
+</tr>
+<!---Dark Friday --->
+<tr class="table-light">
+  <th scope="row">Friday</th>
+  <td><?php
+    if($results["Friday"] == null){
+      echo "Off";
+    } else {
+      echo date('g:i',strtotime($results["Friday"]))." am";
+    }?></td>
+</tr>
+<!---Light Saturday --->
+<tr class="table-dark">
+<th scope="row">Saturday</th>
+<td><?php
+  if($results["Saturday"] == null){
+    echo "Off";
+  } else {
+    echo date('g:i',strtotime($results["Saturday"]))." am";
+  }?></td>
+</tr>
 <!---Light Sunday --->
   <tr class="table-light">
     <th scope="row">Sunday</th>
@@ -90,66 +154,6 @@
         echo date('g:i',strtotime($results["Sunday"]))." am";
       }?></td>
   </tr>
-  <!---Dark Monday --->
-  <tr class="table-dark">
-    <th scope="row">Monday</th>
-    <td><?php
-      if($results["Monday"] == null){
-        echo "Off";
-      } else {
-        echo date('g:i',strtotime($results["Monday"]))." am";
-      }?></td>
-  </tr>
-  <!---Light Tuesday --->
-  <tr class="table-light">
-  <th scope="row">Tuesday</th>
-  <td><?php
-    if($results["Tuesday"] == null){
-      echo "Off";
-    } else {
-      echo date('g:i',strtotime($results["Tuesday"]))." am";
-    }?></td>
-</tr>
-<!---Dark Wednesday --->
-<tr class="table-dark">
-  <th scope="row">Wednesday</th>
-  <td><?php
-    if($results["Wednesday"] == null){
-      echo "Off";
-    } else {
-      echo date('g:i',strtotime($results["Wednesday"]))." am";
-    }?></td>
-</tr>
-<!--- Light Thursday --->
-<tr class="table-light">
-<th scope="row">Thursday</th>
-<td><?php
-  if($results["Thursday"] == null){
-    echo "Off";
-  } else {
-    echo date('g:i',strtotime($results["Thursday"]))." am";
-  }?></td>
-</tr>
-<!---Dark Friday --->
-<tr class="table-dark">
-  <th scope="row">Friday</th>
-  <td><?php
-    if($results["Friday"] == null){
-      echo "Off";
-    } else {
-      echo date('g:i',strtotime($results["Friday"]))." am";
-    }?></td>
-</tr>
-<!---Light Saturday --->
-<tr class="table-light">
-<th scope="row">Saturday</th>
-<td><?php
-  if($results["Saturday"] == null){
-    echo "Off";
-  } else {
-    echo date('g:i',strtotime($results["Saturday"]))." am";
-  }?></td>
-</tr>
 
 </tbody>
 </table>

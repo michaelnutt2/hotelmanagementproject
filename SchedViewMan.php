@@ -1,3 +1,8 @@
+<?php
+  if(!$_SESSION["role"]==1){
+    header('Location:ScheduleViewEmployee.php');
+  }
+?>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -6,13 +11,13 @@
 </head>
 <body>
 <!---NavBar Start --->
-<?php include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/header.php");?>
+<?php include("includes/header.php");?>
 <!---NavBar End --->
 
 
 
 <!---Start second navbar --->
-<?php include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/scheduleNavbar.php");?>
+<?php include("includes/scheduleNavbar.php");?>
 
 <!---End second navbar --->
 
@@ -67,13 +72,14 @@
     <thead>
       <tr>
         <th scope="col" >Employee</th>
-        <th scope="col" >Sunday</th>
         <th scope="col" >Monday</th>
         <th scope="col" >Tuesday</th>
         <th scope="col" >Wednesday</th>
         <th scope="col" >Thursday</th>
         <th scope="col" >Friday</th>
         <th scope="col" >Saturday</th>
+        <th scope="col" >Sunday</th>
+
         </tr>
     </thead>
     <tbody>
@@ -83,7 +89,7 @@ employees and their schedules here-------->
 
 <!---Light --->
   <?php
-    $days = array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+    $days = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
     $i = 0;
     $sc = new Schedule;
     $query = "Week=".$default;

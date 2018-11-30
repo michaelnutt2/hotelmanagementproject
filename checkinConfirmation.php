@@ -5,7 +5,7 @@
 </head>
 <body>
   <?php
-    include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/header.php");?>
+    include("includes/header.php");?>
 
 
 <div class="jumbotron">

@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <?php include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/header.php");?>
+  <?php include("includes/header.php");?>
 
     <?php
       $checkoutErr = "";

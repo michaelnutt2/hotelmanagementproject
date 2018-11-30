@@ -64,8 +64,12 @@ class Database
     $conn = $this->conn();
 
     $sql = "INSERT INTO ".$where." (".$whatFields.") VALUES (".$whatData.")";
-    $conn->query($sql);
-    $results = $conn->insert_id;
+    if($conn->query($sql) == True ){
+      $results = $conn->insert_id;
+    } else {
+      $results = False;
+      echo "<script>console.log(".$conn->error.")</script>";
+    }
 
     $conn->close();
     return $results;

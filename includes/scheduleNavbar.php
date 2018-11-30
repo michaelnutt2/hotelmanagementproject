@@ -12,7 +12,7 @@
         <a class="nav-link active show" data-toggle="tab" href="SchedulePendingMan.php">Pending Time Off Requests</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active show" data-toggle="tab" href="TimeOffRequestM.php">Time Off Request</a>
+        <a class="nav-link active show" data-toggle="tab" href="TimeOffRequest.php">Time Off Request</a>
       </li>
     </ul>';
   } else {
@@ -21,7 +21,7 @@
         <a class="nav-link" data-toggle="tab" href="ScheduleViewEmployee.php">View Schedule</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active show" data-toggle="tab" href="TimeOffRequestE.php">Request Off</a>
+        <a class="nav-link active show" data-toggle="tab" href="TimeOffRequest.php">Request Off</a>
       </li>
     </ul>';
   }

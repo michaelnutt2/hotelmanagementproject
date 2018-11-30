@@ -10,12 +10,12 @@ session_unset();
 <head>
 	<title>Hotel Management System</title>
 	<link rel="stylesheet" href="css/style.css">
-  <?php include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/Database.php"); ?>
-  <?php include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/Login.php");?>
+  <?php include("includes/Database.php"); ?>
+  <?php include("includes/Login.php");?>
 </head>
 <body>
   <?php
-    $lg = new Login;
+    $lg = new login;
     $userpassErr = "";
 
     // Called after user enters data on the page

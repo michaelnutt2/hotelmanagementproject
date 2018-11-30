@@ -7,21 +7,39 @@
 <body>
 
   <!---NavBar Start --->
-  <?php include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/header.php");?>
+  <?php include("includes/header.php");?>
   <!---NavBar End --->
 
 <!---Start second navbar --->
 <?php include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/scheduleNavbar.php");?>
 
 <!---End second navbar --->
+<?php
+  $ptoErr = "";
+  $ptoSuccess = "";
+  $days = array("Monday"=>0,"Tuesday"=>0,"Wednesday"=>0,"Thursday"=>0,"Friday"=>0,"Saturday"=>0,"Sunday"=>0);
+  if($_SERVER["REQUEST_METHOD"]=="POST"){
+    foreach($days as $day => $val){
+      if(isset($_POST[$day])){
+        $val = 1;
+      }
+    }
+    $pt = new PTO;
+    if($pt->create_new($days,$_SESSION["ID"],$_POST["week"],$_POST["reason"]) == FALSE){
+      $ptoErr = "Request failed, please try again.";
+    } else {
+      $ptoSuccess = "Time Off Request Submitted!";
+    }
+  }
+?>
 
 <!--- INSERT FORM TO Request off HERE  --->
-<form style= "float: left; margin-left:250px;  margin-top:20px">
+<form style= "float: left; margin-left:250px;  margin-top:20px" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
   <fieldset>
     <legend><h3>Time Off Request</h3></legend>
 
     <div class="form-group" style = "width:50%;">
-  <select class="custom-select">
+  <select class="custom-select" name="reason">
     <option selected="">Reason for Request Off</option>
     <option value="1">Vacation</option>
     <option value="2">Sick</option>
@@ -31,33 +49,21 @@
     <option value="6">Other</option>
   </select>
 </div>
-<?php
-  $selected = date("W");
-?>
 
 <div class="form-group" style = "width:50%;">
-<select class="custom-select">
+<select class="custom-select" name="week">
 <option selected="">Week</option>
 <?php
 for($i=1;$i<53;$i++){
-  if($i != $selected) {
-    if($i < 10){
-      echo '<option value="'.$i.'">'.date("m-d",strtotime(date("Y")."W0".$i)).'</option>';
-    } else {
-      echo '<option value="'.$i.'">'.date("m-d",strtotime(date("Y")."W".$i)).'</option>';
-    }
+  if($i < 10){
+    echo '<option value="'.$i.'">'.date("m-d",strtotime(date("Y")."W0".$i)).'</option>';
   } else {
-    echo '<option value="'.$i.'">'.date("m-d",strtotime(date("Y")."W".$i)).' (selected)</option>';
+    echo '<option value="'.$i.'">'.date("m-d",strtotime(date("Y")."W".$i)).'</option>';
   }
 }
 ?>
 </select>
 </div>
-    <?php
-      echo "<p>Week of ".date("m-d",strtotime("2018W".$selected))."</p>";
-    ?>
-
-
 			<div class="form-check" style = "margin-left:50px; ">
 				<label class="form-check-label">
 					<input class="form-check-input" name="monday" type="checkbox" value="" >
@@ -101,14 +107,14 @@ for($i=1;$i<53;$i++){
         </label>
       </div>
 <br>
-
+  <span class="error"><p><?php echo $ptoErr;?></p></span>
   <button type="submit" class="btn btn-primary">Submit Request</button>
   <br>
 </fieldset>
 </form>
 <!--- END FORM TO Request off HERE  --->
 <br><br>
-<h3 style="display: none;"><center>Time Off Request Submitted </center></h3>
+<h3 style="display: none;"><center><?php echo $ptoSuccess;?></center></h3>
 
 
 <!---Start Dropdown to select the week for the schedule --->

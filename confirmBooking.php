@@ -9,7 +9,7 @@ ini_set('display_errors', '1');
 </head>
 <body>
   <?php
-    include($_SERVER['DOCUMENT_ROOT']."/hotelmanagement/includes/header.php");
+    include("includes/header.php");
   ?>
   <?php
     $g = new Guests;
