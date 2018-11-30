@@ -14,19 +14,19 @@ class PTO
     return 0;
   }
 
-  public function create_new($days,$EID, $week, $reason){
+  public function create_new($off,$EID, $week, $reason){
     $db = new Database;
     $where = "PTO";
     $fields = "EID,Week,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday,Status,Reason";
-    $data = $EID.",".$week.",".$days['Monday'].",".$days['Tuesday'].",".$days['Wednesday'].",".$days['Thursday'].",".$days['Friday'].",";
-    $data .= $days['Saturday'].",".$days['Sunday'].",'Pending','".$reason."'";
+    $data = $EID.",".$week.",".$off[0].",".$off[1].",".$off[2].",".$off[3].",".$off[4].",";
+    $data .= $off[5].",".$off[6].",'Pending','".$reason."'";
     $result = $db->insert($fields,$data,$where);
     return $result;
   }
   public function delete_row($ID, $week){
     $db = new Database;
     $query = "EID=".$ID." AND Week=".$week;
-    $db->delete("PTO","ID",$query);
+    $db->delete("PTO",$query);
     return;
   }
 

@@ -17,9 +17,7 @@ session_unset();
   <?php
     $lg = new login;
     $userpassErr = "";
-
-    echo "<p>Test</p>";
-
+    
     // Called after user enters data on the page
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Checks if login is correct
