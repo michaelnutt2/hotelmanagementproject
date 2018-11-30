@@ -1,8 +1,3 @@
-<?php
-  if($_SESSION["role"]==0){
-    header('Location:ScheduleViewEmployee.php');
-  }
-?>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>

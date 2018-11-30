@@ -1,8 +1,4 @@
-<?php
-  if($_SESSION["role"]==1){
-    header('Location:SchedViewMan.php');
-  }
-?><!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
 	<title>Hotel Management System</title>
