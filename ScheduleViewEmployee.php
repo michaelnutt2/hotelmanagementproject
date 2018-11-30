@@ -1,5 +1,5 @@
 <?php
-  if($_SESSION["role"]==0){
+  if($_SESSION["role"]==1){
     header('Location:SchedViewMan.php');
   }
 ?><!DOCTYPE HTML>
