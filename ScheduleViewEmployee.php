@@ -37,9 +37,9 @@
 
 
 <!---Start Dropdown to select the week for the schedule --->
-<h3 style ="margin-left:250px; float: left;">Select Week To View </h3>
+<center><h3 >Select Week To View </h3></center> <!---style ="margin-left:350px; float:left;"  --->
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-  <div class="form-group" style="width:20%; margin-left:150px;">
+  <div class="form-group" style="width:20%; margin-left:350px;">
      <select class="custom-select" name="week">
        <?php
        do
