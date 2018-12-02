@@ -21,10 +21,15 @@
 <h3 >Select Week To View </h3>
 <div class="form-group" ><!---style=" float: right; width:20%; margin-right:-250px; margin-top:50px;">--->
    <select class="custom-select">
-     <option selected="">Open this select menu</option>
-     <option value="1">One</option>
-     <option value="2">Two</option>
-     <option value="3">Three</option>
+   <?php
+for($i=1;$i<53;$i++){
+  if($i < 10){
+    echo '<option value="'.$i.'">'.date("m-d",strtotime(date("Y")."W0".$i)).'</option>';
+  } else {
+    echo '<option value="'.$i.'">'.date("m-d",strtotime(date("Y")."W".$i)).'</option>';
+  }
+}
+?>
    </select>
  </div>
 <!---End Dropdown to select the week for the schedule --->
@@ -83,9 +88,14 @@
 <div class="form-group" style=" width:65%;">
    <select class="custom-select">
      <option selected="">Employee</option>
-     <option value="1">One</option>
-     <option value="2">Two</option>
-     <option value="3">Three</option>
+     <?php
+        #here is where I select all users and itterate through them
+        $db = new Database;
+        $results = $db->select("*","user");
+        while($employee = mysqli_fetch_assoc($results)){
+      ?>
+      <option value="<?php echo $employee['ID']; ?>"><?php echo $employee['Name']; ?></option>
+        <?php } ?>
    </select>
  </div>
 
