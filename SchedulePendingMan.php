@@ -74,6 +74,10 @@
 <!---End Dropdown to select the week for the schedule --->
 
 
+
+<button style = "float: right; margin-right:1000px; margin-top:-50px; " type="button" class="btn btn-outline-info">Update</button>
+
+
 <!---Employee Schedule Table Start --->
   <table width ="600" class="table table-hover" style= "margin-left:150px; margin-right:150px; margin-top:25px">
   <col width="200">
