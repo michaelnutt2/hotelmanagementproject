@@ -75,5 +75,13 @@ class Database
     return $results;
   }
 
+  public function update($table, $query){
+    $conn=$this->conn();
+    $sql = "UPDATE ".$table." SET ".$query;
+    $result = $conn->query($sql);
+
+    return $result;
+  }
+
 }
 ?>

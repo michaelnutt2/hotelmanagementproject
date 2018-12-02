@@ -3,9 +3,8 @@
 class PTO
 {
   // Methods
-  public function select_one($ID){
+  public function select_one($query){
     $db = new Database;
-    $query = "EID=".$ID;
     $results = $db->select_one("*","PTO",$query);
     return $results;
   }
@@ -27,6 +26,13 @@ class PTO
   public function select_distinct(){
     $db = new Database;
     $result = $db->select("distinct Week","PTO ORDER BY Week");
+    return $result;
+  }
+
+  public function update($id, $status){
+    $db = new Database;
+    $query = "Status='".$status."' WHERE ID=".$id;
+    $result = $db->update("PTO",$query);
     return $result;
   }
 

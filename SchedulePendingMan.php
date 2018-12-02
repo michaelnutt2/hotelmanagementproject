@@ -18,21 +18,33 @@
    $pt = new PTO;
    $results = $pt->select_distinct();
    $row = $results->fetch_assoc();
+   $approveErr = "";
    if($_SERVER["REQUEST_METHOD"] == "POST"){
      $default=$_POST["Week"];
    } else {
      $default=9;
+     $_POST["Week"] = $default;
    }
 
    if($_SERVER["REQUEST_METHOD"] == "POST"){
      if(isset($_POST["Approve"])){
-       $pt->update();
+       $status = "Approved";
+       $id = $_POST["Approve"];
+     } else {
+       $status = "Denied";
+       $id = $_POST["Deny"];
+     }
+     if(!$pt->update($id, $status)){
+       $approveErr = "Error processing request.";
+     } else {
+       $approveErr = "Request processed.";
      }
    }
 ?>
 
 <br><br>
 <!---Start Dropdown to select the week for the schedule --->
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <h3 style = "margin-left:150px;">Select Week To View </h3>
 <div class="form-group" style="width:20%; margin-left:150px;">
    <select class="custom-select">
@@ -121,22 +133,32 @@ employees and their schedules here-------->
           echo "<td></td>";
         }
       }
-      echo "<td><button type='submit' class='btn btn-success disable' name='Approve'>Approve</button></td>";
-      echo "<td><button type='submit' class='btn btn-danger disable' name='Deny'>Deny</button></td>";
-      echo "</tr>";
+      echo "<input type='hidden' name='Week' value='".$default."'/>";
+      if($row["Status"] == "Pending"){
+        echo "<td><button type='submit' class='btn btn-success' name='Approve' value='".$row["ID"]."'>Approve</button></td>";
+        echo "<td><button type='submit' class='btn btn-danger disable' name='Deny' value='".$row["ID"]."'>Deny</button></td>";
+      } else {
+        if($row["Status"] == "Approved"){
+          echo "<th scope='row'>Approved</th>";
+          echo "<th scope='row'></th>";
+          echo "</tr>";
+        }else{
+          echo "<th scope='row'></th>";
+          echo "<th scope='row'>Denied</th>";
+          echo "</tr>";
+        }
+      }
     }
   }
 ?>
 
 </tbody>
 </table>
+</form>
+<?php
+echo "<span class='error'><p>".$approveErr."</p>";
+?>
 
 <!---Employee Schedule Table End --->
-
-
-
-
-
-
 </body>
 </html>
