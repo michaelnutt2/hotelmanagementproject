@@ -36,7 +36,8 @@
 ?>
 
 <!--- INSERT FORM TO Request off HERE  --->
-<form style= "float: left; margin-left:250px;  margin-top:20px" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<center>
+<form style= "margin-top:20px" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
   <fieldset>
     <legend><h3>Time Off Request</h3></legend>
 
@@ -119,21 +120,6 @@ for($i=1;$i<53;$i++){
 <!--- END FORM TO Request off HERE  --->
 <br><br>
 
-<!---Start Dropdown to select the week for the schedule --->
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-<h3 style="float: right; margin-right:300px; " >Cancel a Previous Request Off</h3>
-<h5 style="float: right; margin-right:420px; ">Select the entry to cancel</h5>
-<div class="form-group" style="width:20%; float: right; margin-right:360px;">
-   <select class="custom-select" name="Cancel">
-     <option selected="">Pending Requests</option>
-   </select>
- </div>
-
-<button type="submit" class="btn btn-primary btn-lg"  style="float: right; margin-right:375px; " name="cancel" value="cancel">Cancel</button>
-
-</form>
-
-<!---End Dropdown to select the week for the schedule --->
 
 </body>
 </html>
