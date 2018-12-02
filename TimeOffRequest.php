@@ -36,7 +36,7 @@
 ?>
 
 <!--- INSERT FORM TO Request off HERE  --->
-<center>
+
 <form style= "margin-top:20px" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
   <fieldset>
     <legend><h3>Time Off Request</h3></legend>
