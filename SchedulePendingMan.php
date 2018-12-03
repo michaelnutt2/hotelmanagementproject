@@ -22,22 +22,23 @@
    if($_SERVER["REQUEST_METHOD"] == "POST"){
      $default=$_POST["Week"];
    } else {
-     $default=9;
-     $_POST["Week"] = $default;
+     $default=$row["Week"];
    }
 
    if($_SERVER["REQUEST_METHOD"] == "POST"){
      if(isset($_POST["Approve"])){
        $status = "Approved";
        $id = $_POST["Approve"];
-     } else {
+     } else if(isset($_POST["Deny"])){
        $status = "Denied";
        $id = $_POST["Deny"];
      }
-     if(!$pt->update($id, $status)){
-       $approveErr = "Error processing request.";
-     } else {
-       $approveErr = "Request processed.";
+     if(isset($status)){
+       if(!$pt->update($id, $status)){
+         $approveErr = "Error processing request.";
+       } else {
+         $approveErr = "Request processed.";
+       }
      }
    }
 ?>
@@ -47,7 +48,7 @@
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <h3 style = "margin-left:150px;">Select Week To View </h3>
 <div class="form-group" style="width:20%; margin-left:150px;">
-   <select class="custom-select">
+   <select class="custom-select" name="Week">
      <?php
         do{
           if($row["Week"]!=$default){
@@ -75,7 +76,7 @@
 
 
 
-<button style = "float: right; margin-right:1000px; margin-top:-50px; " type="button" class="btn btn-outline-info">Update</button>
+<button style = "float: right; margin-right:1000px; margin-top:-50px; " type="submit" class="btn btn-outline-info">Update</button>
 
 
 <!---Employee Schedule Table Start --->
@@ -137,7 +138,7 @@ employees and their schedules here-------->
           echo "<td></td>";
         }
       }
-      echo "<input type='hidden' name='Week' value='".$default."'/>";
+      // echo "<input type='hidden' name='Week' value='".$default."'/>";
       if($row["Status"] == "Pending"){
         echo "<td><button type='submit' class='btn btn-success' name='Approve' value='".$row["ID"]."'>Approve</button></td>";
         echo "<td><button type='submit' class='btn btn-danger disable' name='Deny' value='".$row["ID"]."'>Deny</button></td>";
@@ -159,9 +160,6 @@ employees and their schedules here-------->
 </tbody>
 </table>
 </form>
-<?php
-echo "<span class='error'><p>".$approveErr."</p>";
-?>
 
 <!---Employee Schedule Table End --->
 </body>
