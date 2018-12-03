@@ -32,7 +32,9 @@ class Schedule
   }
 
   // Used for setting up a new user
-  public function create_new(){
+  public function create_new($fields, $values){
+    $db = new Database;
+    $id = $db->insert($fields, $values, "schedule");
     return;
   }
 }
