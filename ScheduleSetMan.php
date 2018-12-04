@@ -177,19 +177,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  <span class="error"><p><?php echo $createErr; ?></p></span>
  <button  style = "float:left; margin-left:25px; "type="submit" name="submit" class="btn btn-outline-info">Submit</button>
 
- <div class="form-group" style="width:50%;">
+ <div class="form-group" style="float:right; margin-right: -300px; margin-top: -300px; width:50%;">
 	<label for="endDate">Thursday</label>
 	<input type="time" class="form-control" id="endTime" placeholder="HH:MM" name="Thursday">
  </div>
- <div class="form-group" style="width: 50%;">
+ <div class="form-group" style="float:right; margin-right: -300px; margin-top: -225px; width: 50%;">
 	 <label for="endDate">Friday</label>
 	 <input type="time" class="form-control" id="endTime" placeholder="HH:MM" name="Friday">
  </div>
- <div class="form-group" style="width:50%;">
+ <div class="form-group" style="float:right; margin-right: -300px; margin-top: -150px;width:50%;">
 	 <label for="endDate">Saturday</label>
 	 <input type="time" class="form-control" id="endTime" placeholder="HH:MM" name="Saturday">
  </div>
- <div class="form-group" style="width:50%;">
+ <div class="form-group" style="float:right; margin-right: -300px; margin-top: -75px; width:50%;">
 	 <label for="endDate">Sunday</label>
 	 <input type="time" class="form-control" id="endTime" placeholder="HH:MM" name="Sunday">
  </div>
